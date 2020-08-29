@@ -16,7 +16,7 @@ try:
     type_of_workspace = args[0].replace("--", "")
     path = Path(args[1])
 except:
-    raise ValueError("invaild arguments")
+    raise ValueError("invaild arguments or not given")
 
 print("\n")
 
@@ -31,7 +31,8 @@ print("\n")
 for dir in workspaces.workspaces[type_of_workspace]["dirs"]:
     try:
         subprocess.call(f"mkdir {dir}", shell = True, cwd=path, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
-        print(dir + "\ created")
+        print(dir + "\ created") 
+        # raises warning "Anomalous backslash in string: '\ ' " can be ignored!
     except:
         dirs = str(workspaces.workspaces[type_of_workspace]["dirs"])
         raise ValueError(f"path ({str(path)}) invalid, couldn't create {dirs}")
@@ -54,6 +55,7 @@ print("\n")
 try:
     for command in workspaces.workspaces[type_of_workspace]["commands"]:
         try:
+            # execute given shell commands in given path
             subprocess.call(command, shell = True, cwd=path, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
             print(command + " executed")
         except:

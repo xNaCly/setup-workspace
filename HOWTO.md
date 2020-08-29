@@ -21,11 +21,11 @@ creates:
 
 ## [Workspaces](https://github.com/xNaCly/setup-workspace/blob/master/src/workspaces.py):
 
-- default workspaces include:
+-   default workspaces include:
 
-  -   --node workspace
-  -   --python workspace
-  -   --html workspace
+    -   --node workspace
+    -   --python workspace
+    -   --html workspace
 
 -   Syntax config/workspaces:
     ```python
