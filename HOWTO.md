@@ -30,13 +30,12 @@ creates:
 
 -   Syntax config/workspaces:
     ```python
-        workspaces = {
-            >>>> custom workspace structure
+    >>>> custom workspace syntax (workspaces.py):
             "workspace_name_here":{
                 "files":["folder\\index.html", "folder\\index.js", "folder\\style.css"],
-                "dirs":["folder"]
+                "dirs":["folder"],
+                "commands":["shell-commands"]
             }
-        }
     ```
     -   to use the custom workspace config:
     ```
