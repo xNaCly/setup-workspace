@@ -8,16 +8,22 @@
     -   type of [workspace](https://github.com/xNaCly/setup-workspace/blob/master/src/workspaces.py)
     -   file path: `[".", "./", "C:/dir"]`
 
-```
+```bash
 example:
-setup-workspace.py --node C:\Users\<user>\Desktop
-```
 
-creates:
-<br>
-<kbd>
-<img src=https://cdn.discordapp.com/attachments/638844015084568597/749205800035287070/unknown.png />
-</kbd>
+>>>> setup-workspace.py --node C:\Users\<user>\Desktop
+
+>>>> tree /f
+    C:.
+    │   package.json
+    │
+    ├───docs
+    │       README.md
+    │
+    └───src
+            config.json
+            index.js
+```
 
 ## [Workspaces](https://github.com/xNaCly/setup-workspace/blob/master/src/workspaces.py):
 
@@ -26,7 +32,9 @@ creates:
     -   --node
     -   --python
     -   --html
-    -   --git (usage requires gitrepo link: `setup-workspace.py --git C:\Users\<user>\Desktop https://github.com/<user>/test.git`)
+    -   --git
+        <br>
+        (usage requires gitrepo link: `setup-workspace.py --git C:\Users\<user>\Desktop https://github.com/<user>/test.git`)
 
 -   Syntax config/workspaces:
 
