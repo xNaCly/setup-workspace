@@ -29,16 +29,19 @@ creates:
     -   --git (usage requires gitrepo link: `setup-workspace.py --git C:\Users\<user>\Desktop https://github.com/<user>/test.git`)
 
 -   Syntax config/workspaces:
+
     ```python
     >>>> custom workspace syntax (workspaces.py):
-    
-            "workspace_name_here":{
-                "files":["folder\\index.html", "folder\\index.js", "folder\\style.css"],
-                "dirs":["folder"],
-                "commands":["shell-commands"]
-            }
+
+        "workspace_name_here":{
+            "files":["folder\\index.html", "folder\\index.js", "folder\\style.css"],
+            "dirs":["folder"],
+            "commands":["shell-commands"]
+        }
     ```
+
     -   to use the custom workspace config:
+
     ```
     setup-workspace.py --workspace_name_here C:\Users\<user>\Desktop
     ```
