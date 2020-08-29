@@ -2,7 +2,7 @@
 
 `main.py [type of workspace] [File path]`
 
-- type of [workspace]()
+- type of [workspace](https://github.com/xNaCly/setup-workspace/blob/master/src/config.py)
 - file path: `[".", "./", "C:/dir"]`
 
 ```
@@ -18,7 +18,7 @@ creates:
 
 
 
-## [Configs]():
+## [Configs](https://github.com/xNaCly/setup-workspace/blob/master/src/config.py):
 
 - basic configs include:
 
