@@ -36,7 +36,7 @@ example:
         <br>
         (usage requires gitrepo link: `setup-workspace.py --git C:\Users\<user>\Desktop https://github.com/<user>/test.git`)
 
--   Syntax config/workspaces:
+-   Syntax workspaces:
 
     ```python
     >>>> custom workspace syntax (workspaces.py):
