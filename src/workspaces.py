@@ -11,5 +11,8 @@ workspaces = {
     "html":{
         "files":["src\\index.html", "src\\style.css", "src\\index.js"],
         "dirs":["src"]
+    },
+    "git":{
+        "commands":["git init", "git remote add origin", "git add -A", "git commit -m 'init' ", "git push -u origin master"]
     }
 }

@@ -12,13 +12,15 @@ args.pop(0)
 # check if all arguments are given 
 # >>>> type_of_workspace ["--node","--python","--html","--custom"]
 # >>>> path [".", "./", "C:/dir"]
+# >>>> --git
+# >>>> githubrepolink
 try:
     type_of_workspace = args[0].replace("--", "")
     path = Path(args[1])
 except:
     raise ValueError("invaild arguments or not given")
 
-print("\n")
+
 
 # loop through given workspace template
     # "workspace":{
@@ -28,33 +30,43 @@ print("\n")
     # }
 
 # loop through folders (workspace["dirs"])
-for dir in workspaces.workspaces[type_of_workspace]["dirs"]:
-    try:
-        subprocess.call(f"mkdir {dir}", shell = True, cwd=path, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
-        print(dir + "\ created") 
-        # raises warning "Anomalous backslash in string: '\ ' " can be ignored!
-    except:
-        dirs = str(workspaces.workspaces[type_of_workspace]["dirs"])
-        raise ValueError(f"path ({str(path)}) invalid, couldn't create {dirs}")
+try:
+    print("\n")
+    for dir in workspaces.workspaces[type_of_workspace]["dirs"]:
+        try:
+            subprocess.call(f"mkdir {dir}", shell = True, cwd=path, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
+            print(dir + r"\ created") 
+            # raises warning "Anomalous backslash in string: '\ ' " can be ignored!
+        except:
+            dirs = str(workspaces.workspaces[type_of_workspace]["dirs"])
+            raise ValueError(f"path ({str(path)}) invalid, couldn't create {dirs}")
+except:
+    pass
 
-print("\n")
 
 # loop through files (workspace["files"])
-for element in workspaces.workspaces[type_of_workspace]["files"]:
-    try:
-        with open(str(path) + "\\" + element, "w") as f:
-            f.close()
-        print(element + " created")
-    except:
-        files = str(workspaces.workspaces[type_of_workspace]["files"])
-        raise ValueError(f"path ({str(path)}) invalid, couldn't create {files}")
+try:
+    print("\n")
+    for element in workspaces.workspaces[type_of_workspace]["files"]:
+        try:
+            with open(str(path) + "\\" + element, "w") as f:
+                f.close()
+            print(element + " created")
+        except:
+            files = str(workspaces.workspaces[type_of_workspace]["files"])
+            raise ValueError(f"path ({str(path)}) invalid, couldn't create {files}")
+except:
+    # runs if no files are found in workspace 
+    pass
 
-print("\n")
 
 # if there are commands, loop through them (workspace["commands"])
 try:
+    print("\n")
     for command in workspaces.workspaces[type_of_workspace]["commands"]:
         try:
+            if command == "git remote add origin":
+                command = command + " " + args[2]
             # execute given shell commands in given path
             subprocess.call(command, shell = True, cwd=path, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
             print(command + " executed")
