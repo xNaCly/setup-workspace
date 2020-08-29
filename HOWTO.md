@@ -26,7 +26,7 @@ creates:
     -   --node
     -   --python
     -   --html
-    -   --git `setup-workspace.py --git C:\Users\<user>\Desktop https://github.com/<user>/test.git`
+    -   --git (usage requires gitrepo link: `setup-workspace.py --git C:\Users\<user>\Desktop https://github.com/<user>/test.git`)
 
 -   Syntax config/workspaces:
     ```python
