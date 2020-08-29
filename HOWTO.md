@@ -2,7 +2,7 @@
 
 -   execute workspace gen:
 
-    `setup-workspace.py [type of workspace] [File path]`
+    `setup-workspace.py <type of workspace> <File path> [git repo link]`
 
 -   Arguments:
     -   type of [workspace](https://github.com/xNaCly/setup-workspace/blob/master/src/workspaces.py)
@@ -10,7 +10,7 @@
 
 ```
 example:
-setup-workspace.py --node C:\Users\User\Desktop
+setup-workspace.py --node C:\Users\<user>\Desktop
 ```
 
 creates:
@@ -26,7 +26,7 @@ creates:
     -   --node
     -   --python
     -   --html
-    -   --git
+    -   --git `setup-workspace.py --node C:\Users\<user>\Desktop https://github.com/<user>/test.git`
 
 -   Syntax config/workspaces:
     ```python
