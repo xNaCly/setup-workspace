@@ -1,9 +1,12 @@
 ### How to:
 
-`main.py [type of workspace] [File path]`
+- execute workspace gen:
 
-- type of [workspace](https://github.com/xNaCly/setup-workspace/blob/master/src/config.py)
-- file path: `[".", "./", "C:/dir"]`
+  `main.py [type of workspace] [File path]`
+
+- Arguments:
+  - type of [workspace](https://github.com/xNaCly/setup-workspace/blob/master/src/config.py)
+  - file path: `[".", "./", "C:/dir"]`
 
 ```
 example:
@@ -22,7 +25,19 @@ creates:
 
 - basic configs include:
 
-  - node workspace
-  - python workspace
+  - --node workspace
+  - --python workspace
+
+- Syntax config/workspaces:
+
+   ```python
+  workspace_name = {
+      "files":["folder\\file"],
+      "dirs":["folder"],
+      "commands":["shell-commands"]
+  }
+   ```
+
+  
 
   
