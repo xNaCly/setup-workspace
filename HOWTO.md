@@ -1,12 +1,12 @@
 ### How to:
 
-- execute workspace gen:
+-   execute workspace gen:
 
-  `main.py [type of workspace] [File path]`
+    `main.py [type of workspace] [File path]`
 
-- Arguments:
-  - type of [workspace](https://github.com/xNaCly/setup-workspace/blob/master/src/config.py)
-  - file path: `[".", "./", "C:/dir"]`
+-   Arguments:
+    -   type of [workspace](https://github.com/xNaCly/setup-workspace/blob/master/src/config.py)
+    -   file path: `[".", "./", "C:/dir"]`
 
 ```
 example:
@@ -19,25 +19,19 @@ creates:
 <img src=https://cdn.discordapp.com/attachments/638844015084568597/749205800035287070/unknown.png />
 </kbd>
 
-
-
 ## [Configs](https://github.com/xNaCly/setup-workspace/blob/master/src/config.py):
 
-- basic configs include:
+-   basic configs include:
 
-  - --node workspace
-  - --python workspace
+    -   --node workspace
+    -   --python workspace
 
-- Syntax config/workspaces:
+-   Syntax config/workspaces:
 
-   ```python
-  workspace_name = {
-      "files":["folder\\file"],
-      "dirs":["folder"],
-      "commands":["shell-commands"]
-  }
-   ```
-
-  
-
-  
+    ```python
+    workspace_name = {
+       "files": ["folder\\file"],
+       "dirs": ["folder"],
+       "commands": ["shell-commands"]
+    }
+    ```
