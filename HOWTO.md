@@ -5,7 +5,7 @@
     `setup-workspace.py [type of workspace] [File path]`
 
 -   Arguments:
-    -   type of [workspace](https://github.com/xNaCly/setup-workspace/blob/master/src/config.py)
+    -   type of [workspace](https://github.com/xNaCly/setup-workspace/blob/master/src/workspaces.py)
     -   file path: `[".", "./", "C:/dir"]`
 
 ```
@@ -19,12 +19,13 @@ creates:
 <img src=https://cdn.discordapp.com/attachments/638844015084568597/749205800035287070/unknown.png />
 </kbd>
 
-## [Configs](https://github.com/xNaCly/setup-workspace/blob/master/src/config.py):
+## [Workspaces](https://github.com/xNaCly/setup-workspace/blob/master/src/workspaces.py):
 
--   basic configs include:
+- default workspaces include:
 
-    -   --node workspace
-    -   --python workspace
+  -   --node workspace
+  -   --python workspace
+  -   --html workspace
 
 -   Syntax config/workspaces:
     ```python
