@@ -2,7 +2,7 @@
 
 -   execute workspace gen:
 
-    `setup-workspace.py <type of workspace> <File path> [git repo link]`
+    `setup-workspace.py` `<type of workspace>` `<File path>` `[git repo link]`
 
 -   Arguments:
     -   type of [workspace](https://github.com/xNaCly/setup-workspace/blob/master/src/workspaces.py)
