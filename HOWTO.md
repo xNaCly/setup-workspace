@@ -40,5 +40,5 @@ creates:
     ```
     -   to use the custom workspace config:
     ```
-    setup-workspace.py --workspace_name_here C:\Users\User\Desktop
+    setup-workspace.py --workspace_name_here C:\Users\<user>\Desktop
     ```
