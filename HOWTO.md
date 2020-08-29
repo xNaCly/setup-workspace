@@ -31,6 +31,7 @@ creates:
 -   Syntax config/workspaces:
     ```python
     >>>> custom workspace syntax (workspaces.py):
+    
             "workspace_name_here":{
                 "files":["folder\\index.html", "folder\\index.js", "folder\\style.css"],
                 "dirs":["folder"],
