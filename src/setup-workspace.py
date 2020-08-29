@@ -19,7 +19,7 @@ print("\n")
 for dir in workspaces.workspaces[type_of_workspace]["dirs"]:
     try:
         subprocess.call(f"mkdir {dir}", shell = True, cwd=path, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
-        print(dir + "/ created")
+        print(dir + "\ created")
     except:
         dirs = str(workspaces.workspaces[type_of_workspace]["dirs"])
         raise ValueError(f"path ({str(path)}) invalid, couldn't create {dirs}")
@@ -33,10 +33,14 @@ for element in workspaces.workspaces[type_of_workspace]["files"]:
         files = str(workspaces.workspaces[type_of_workspace]["files"])
         raise ValueError(f"path ({str(path)}) invalid, couldn't create {files}")
 print("\n")
-for command in workspaces.workspaces[type_of_workspace]["commands"]:
-    try:
-        subprocess.call(command, shell = True, cwd=path, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
-        print(command + " executed")
-    except:
-        raise ValueError(f"command ({command}) invalid, couldn't execute")
+try:
+    for command in workspaces.workspaces[type_of_workspace]["commands"]:
+        try:
+            subprocess.call(command, shell = True, cwd=path, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
+            print(command + " executed")
+        except:
+            raise ValueError(f"command ({command}) invalid, couldn't execute")
+except:
+    pass
+
 print("\n\nWorkspace created.")

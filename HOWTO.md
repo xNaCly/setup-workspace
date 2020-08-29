@@ -2,7 +2,7 @@
 
 -   execute workspace gen:
 
-    `main.py [type of workspace] [File path]`
+    `setup-workspace.py [type of workspace] [File path]`
 
 -   Arguments:
     -   type of [workspace](https://github.com/xNaCly/setup-workspace/blob/master/src/config.py)
@@ -10,7 +10,7 @@
 
 ```
 example:
-main.py --node C:\Users\User\Desktop
+setup-workspace.py --node C:\Users\User\Desktop
 ```
 
 creates:
@@ -42,9 +42,14 @@ creates:
                 "files":["src\\index.html", "src\\style.css", "src\\index.js"],
                 "dirs":["src"]
             },
+            >>>> custom workspace structure
             "workspace_name_here":{
                 "files":["folder\\index.html", "folder\\index.js", "folder\\style.css"],
                 "dirs":["folder"]
             }
         }
+    ```
+    -   to use the custom workspace config:
+    ```
+    setup-workspace.py --workspace_name_here C:\Users\User\Desktop
     ```
