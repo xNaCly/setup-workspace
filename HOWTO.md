@@ -27,11 +27,24 @@ creates:
     -   --python workspace
 
 -   Syntax config/workspaces:
-
     ```python
-    workspace_name = {
-       "files": ["folder\\file"],
-       "dirs": ["folder"],
-       "commands": ["shell-commands"]
-    }
+        workspaces = {
+            "node":{
+                "files":["src\\index.js","src\\config.json","docs\\README.md"],
+                "dirs":["src","docs"],
+                "commands":["npm init -y"]
+            },
+            "python":{
+                "files":["src\\main.py", "src\\config.py"],
+                "dirs":["src"]
+            },
+            "html":{
+                "files":["src\\index.html", "src\\style.css", "src\\index.js"],
+                "dirs":["src"]
+            },
+            "workspace_name_here":{
+                "files":["folder\\index.html", "folder\\index.js", "folder\\style.css"],
+                "dirs":["folder"]
+            }
+        }
     ```

@@ -7,5 +7,9 @@ workspaces = {
     "python":{
         "files":["src\\main.py", "src\\config.py"],
         "dirs":["src"]
+    },
+    "html":{
+        "files":["src\\index.html", "src\\style.css", "src\\index.js"],
+        "dirs":["src"]
     }
 }
