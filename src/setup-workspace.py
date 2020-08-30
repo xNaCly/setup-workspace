@@ -50,6 +50,13 @@ try:
     for element in workspaces.workspaces[type_of_workspace]["files"]:
         try:
             with open(str(path) + "\\" + element, "w") as f:
+                try:
+                    for x in workspaces.workspaces[type_of_workspace]["contents"]:
+                        content = x.split(":::")
+                        if content[0] == element:
+                            f.write(content[1])
+                except:
+                    pass
                 f.close()
             print(element + " created")
         except:

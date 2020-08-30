@@ -2,7 +2,8 @@ workspaces = {
     "node":{
         "files":["src\\index.js","src\\config.json","docs\\README.md"],
         "dirs":["src","docs"],
-        "commands":["npm init -y"]
+        "commands":["npm init -y"],
+        "contents":["src\\index.js:::const fetch = require(\"node-fetch\");\n(async()=>{\nconsole.log(\"test\")\n})()"]
     },
     "python":{
         "files":["src\\main.py", "src\\config.py"],
