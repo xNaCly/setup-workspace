@@ -1,8 +1,10 @@
 from pathlib import Path
 import workspaces
+import os
 import sys
 import subprocess
 
+exceptarray = workspaces.except_files_in_generation 
 
 # get arguments from script call ["setup-workspace.py", "--workspacetype", "path"]
 args = sys.argv
@@ -21,6 +23,14 @@ except:
     raise ValueError("invaild arguments or not given")
 
 
+if type_of_workspace == "gen_workspace":
+    # HOWTO.md
+    # README.md
+    # src
+    # src\setup-workspace.py
+    # src\workspaces.py
+    # test.py
+    pass
 
 # loop through given workspace template
     # "workspace":{
@@ -28,6 +38,7 @@ except:
     #     "dirs":["folder"],
     #     "commands":["command"]
     # }
+
 
 # loop through folders (workspace["dirs"])
 try:

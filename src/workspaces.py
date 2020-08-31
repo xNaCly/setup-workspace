@@ -1,3 +1,5 @@
+except_files_in_generation = [".git", ".gitignore", "__pycache__", "log"]
+
 workspaces = {
     "node":{
         "files":["src\\index.js","src\\config.json"],
@@ -21,6 +23,5 @@ workspaces = {
             "index.js:::const config = require(\"./config\");\nconst fetch = require(\"node-fetch\");\n(async() => {\nconsole.log(\"test\")\n})()",
             "config.json:::{\"token\":\"tokentoken\",\n\"prefix\":\"$\"}"
             ]
-    }
-
+    },
 }
