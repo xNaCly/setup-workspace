@@ -1,0 +1,6 @@
+name,,files,,dirs,,commands,,contents
+node,,src\\index.js;;;src\\config.json,,src,,npm init -y,,None
+python,,src\\main.py;;;src\\config.py,,src,,None,,None
+html,,src\\index.html;;;src\\style.css;;;src\\index.js,,src,,None,,None
+git,,None,,None,,git init;;;git remote add origin;;;git add -A;;;git commit -m 'init' ;;;git push -u origin master,,None
+xnacly,,index.js;;;config.json,,None,,None,,index.js:::const config = require("./config");<br>const fetch = require("node-fetch");<br>(async() => {<br>console.log("test")<br>})();;;config.json:::{"token":"tokentoken","prefix":"$"}
