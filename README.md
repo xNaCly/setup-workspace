@@ -7,4 +7,4 @@ a highly customisable script to setup your workspace
 # ToDo's
 
 -   [ ] `--git` --> create repo if `--newrepo` flag (github api, Oauth)
--   [ ] add filecontents to --generaterepo
+-   [ ] add filecontents to `--generaterepo`
