@@ -1,2 +1,2 @@
 except_files_in_generation
-.git,.gitignore,__pycache__,log
+.git;.gitignore;__pycache__;log

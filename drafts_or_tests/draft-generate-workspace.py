@@ -2,52 +2,43 @@ import os
 import pathlib
 import uuid
 
+path = "C:\\Desktop1\\setupworkspace"
 name = str(uuid.uuid4())[0:4]
-path = "../"
+exceptarray = [".git",".gitignore","__pycache__","log"]
+files = []
+dirs = []
 
-except_files_in_generation = [".git", ".gitignore", "__pycache__", "log"]
-
-def test(name, path):
-    files = []
-    dirs = []
-    startdir = os.listdir(path)
-    for dir_or_file in startdir:
-        if dir_or_file in except_files_in_generation:
-            pass
+for item in os.listdir(path):
+        if item in exceptarray:
+            continue
         else:
-            try:
-                for file in os.listdir(path + "\\" + dir_or_file):
-                    if file in except_files_in_generation:
-                        pass
-                    else:
-                        files.append(str(dir_or_file + "\\" + file))
-                        if dir_or_file in dirs:
-                            pass
-                        else:
-                            dirs.append(dir_or_file)
-            except:
-                files.append(dir_or_file)
+            if os.path.isdir(path + "\\"+ item):
+                dirs.append(item)
+            else:
+                files.append(item)
 
-    try:
-        with open("generated_workspaces.csv", "a") as f:
-            f.write(
-                "\n" + 
-                name 
-                + ",," + 
-                str(files).replace(",",";;;").replace("[","").replace("]","").replace(" ", "").replace("'", "") 
-                + ",," + 
-                str(dirs).replace(",",";;;").replace("[","").replace("]","").replace(" ", "").replace("'", "")
-                + ",," +
-                "None" 
-                + ",," +
-                "None"
-            )
-        for x in dirs:
-            print("++ ./" + x)
-        for x in files:
-            print("++ " + x)
-        print("workspace template generated as: " + name)
-    except:
-        raise RuntimeError("Something went wrong")
+for folder in dirs:
+    if folder in exceptarray:
+        continue
+    else:
+        for item_ in os.listdir(path +"\\"+ folder):
+            if folder in exceptarray:
+                continue
+            else:
+                if os.path.isdir(folder + "\\" + item_):
+                    dirs.append(folder + "\\" +  item_)
+                else:
+                    files.append(folder + "\\" +  item_)
 
-test(name, path)
+try:
+    writestring = f"\n{name}|" + ";;".join(files) + "|" + ";;".join(dirs) + "|None|None" 
+    with open("workspaces.csv", "a") as f:
+        f.write(writestring)
+    for x in dirs:
+        print("++ .\\" + x)
+    for x in files:
+        print("++ " + x)
+    print("workspace template generated as: " + name)
+except:
+    raise RuntimeError("Something went wrong")
+

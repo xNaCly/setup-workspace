@@ -1,26 +1,30 @@
 from pathlib import Path
+import uuid
 import os
 import sys
 import subprocess
 
 exceptarray = None
 workspaces_dict = {}
+files = []
+dirs = []
+name = str(uuid.uuid4())[0:4]
 
 with open("./config.csv", "r") as f:
-    exceptarray = f.read().split("\n")[1].split(",")
+    exceptarray = f.read().split("\n")[1].split(";")
 
 with open("./workspaces.csv","r") as f:
     workspaces = f.read().split("\n")
     workspaces.pop(0)
 
 for workspace in workspaces:
-    workspace = workspace.replace("\\\\","\\").split(",,")
+    workspace = workspace.replace("\\\\","\\").split("|")
     #node, src\\index.js;src\\config.json, src, npm init -y
     workspaces_dict[workspace[0]] = {
-        "files": workspace[1].split(";;;"),
-        "dirs": workspace[2].split(";;;"),
-        "commands": workspace[3].split(";;;"),
-        "contents": workspace[4].replace("<br>","\n").split(";;;")
+        "files": workspace[1].split(";;"),
+        "dirs": workspace[2].split(";;"),
+        "commands": workspace[3].split(";;"),
+        "contents": workspace[4].replace("<br>","\n").split(";;")
     }
 
 
@@ -40,8 +44,42 @@ except:
     raise ValueError("invaild arguments or not given")
 
 path = Path(args[1])
+path = str(path)
 
-if type_of_workspace == "gen_workspace":
+if type_of_workspace == "gen":
+    for item in os.listdir(path):
+        if item in exceptarray:
+            continue
+        else:
+            if os.path.isdir(path + "\\"+ item):
+                dirs.append(item)
+            else:
+                files.append(item)
+
+    for folder in dirs:
+        if folder in exceptarray:
+            continue
+        else:
+            for item_ in os.listdir(path +"\\"+ folder):
+                if folder in exceptarray:
+                    continue
+                else:
+                    if os.path.isdir(folder + "\\" + item_):
+                        dirs.append(folder + "\\" +  item_)
+                    else:
+                        files.append(folder + "\\" +  item_)
+
+    try:
+        writestring = f"\n{name}|" + ";;".join(files) + "|" + ";;".join(dirs) + "|None|None" 
+        with open("workspaces.csv", "a") as f:
+            f.write(writestring)
+        for x in dirs:
+            print("++ .\\" + x)
+        for x in files:
+            print("++ " + x)
+        print("workspace template generated as: " + name)
+    except:
+        raise RuntimeError("Something went wrong")
     pass
 
 
@@ -57,7 +95,7 @@ try:
             # raises warning "Anomalous backslash in string: '\ ' " can be ignored!
         except:
             dirs = str(workspaces_dict[type_of_workspace]["dirs"])
-            raise ValueError(f"path ({str(path)}) invalid, couldn't create {dirs}")
+            raise ValueError(f"path ({path}) invalid, couldn't create {dirs}")
 except:
     pass
 
@@ -69,7 +107,7 @@ try:
         if element == "None":
             continue
         try:
-            with open(str(path) + "\\" + element, "w") as f:
+            with open(path + "\\" + element, "w") as f:
                 try:
                     for x in workspaces_dict[type_of_workspace]["contents"]:
                         content = x.split(":::")
@@ -81,7 +119,7 @@ try:
             print(element + " created")
         except:
             files = str(workspaces_dict[type_of_workspace]["files"])
-            raise ValueError(f"path ({str(path)}) invalid, couldn't create {files}")
+            raise ValueError(f"path ({path}) invalid, couldn't create {files}")
 except:
     # runs if no files are found in workspace 
     pass
