@@ -1,2 +1,3 @@
-
-55e7|README.md;;docs\Workspaces.md;;drafts_or_tests\draft-generate-workspace.py;;drafts_or_tests\test;;drafts_or_tests\test.py;;src\config.csv;;src\setup-workspace.py;;src\workspaces.csv|docs;;drafts_or_tests;;src|None|None
+name|files|dirs|commands|contents
+f951|README.md;;docs\Workspaces.md;;drafts_or_tests\draft-generate-workspace.py;;drafts_or_tests\test;;drafts_or_tests\test.py;;drafts_or_tests\workspaces.csv;;src\config.csv;;src\setup-workspace.py;;src\workspaces.csv|docs;;drafts_or_tests;;src|None|None
+d817|README.md;;docs\Workspaces.md;;drafts_or_tests\draft-generate-workspace.py;;drafts_or_tests\test;;drafts_or_tests\test.py;;drafts_or_tests\workspaces.csv;;src\config.csv;;src\setup-workspace.py;;src\workspaces.csv|docs;;drafts_or_tests;;src|None|None

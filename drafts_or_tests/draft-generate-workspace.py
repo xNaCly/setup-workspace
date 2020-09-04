@@ -34,10 +34,8 @@ try:
     writestring = f"\n{name}|" + ";;".join(files) + "|" + ";;".join(dirs) + "|None|None" 
     with open("workspaces.csv", "a") as f:
         f.write(writestring)
-    for x in dirs:
-        print("++ .\\" + x)
-    for x in files:
-        print("++ " + x)
+    print("\n++ .\\".join(dirs))
+    print("\n++ ".join(files))
     print("workspace template generated as: " + name)
 except:
     raise RuntimeError("Something went wrong")
